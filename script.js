@@ -226,3 +226,112 @@ let newString = somePeople.reduce((acc, eachPerson) => {
 }, "")
 
 console.log(newString)
+
+
+// Actividad Reduce
+
+const menu = [
+  { name: 'Carrots', calories: 150.45 },
+  { name: 'Steak'},
+  { name: 'Broccoli', calories: 120.2342 },
+  { name: 'Chicken', calories: 250.6523 },
+  { name: 'Pizza', calories: 520.124 }
+];
+
+// again... just an arrow function below.
+const calAvgCalories = (arr) => {
+
+  if (arr.length === 0) {
+    return null
+  }
+
+  let sum = arr.reduce((acc, eachFood) => {
+
+    if (eachFood.calories === undefined) {
+      return acc
+    } else {
+      return acc + eachFood.calories
+    }
+
+  }, 0)
+
+  let avg = sum / arr.length
+  let twoDec = avg.toFixed(2)
+
+  // 3 formas de convertir un string a un numero
+  return parseFloat(twoDec)
+  // return Number(twoDec)
+  // return +twoDec
+
+}
+
+// Invoking and running the function
+let output1 = calAvgCalories(menu)
+console.log(output1) //Answer should be 208.29 
+
+let output2 = calAvgCalories([])
+console.log(output2) //Answer should be null
+
+
+// .reverse()
+
+
+let orderedList = [0, 1, 2, 3, 4, 5]
+console.log(orderedList)
+
+// si yo no quiero modificar el arr original con reverse o sort, clonamos el array
+let cloneArr = JSON.parse( JSON.stringify(orderedList) ) // DEEP CLONE => clona todas las referencias internas
+// JSON.parse + JSON.stringify
+// .slice(0)
+// .map((e) => e)
+
+
+cloneArr.reverse() // solo devuelve la misma referencia del array original mutado
+console.log("clone", cloneArr)
+
+console.log("el original", orderedList)
+// en reverse y sort, mutan el array original
+
+
+// .sort()
+
+let someLetters = [ "b", "a", "c", "f", "d", "g", "ab", "aa" ]
+
+let cloneLetters = JSON.parse( JSON.stringify(someLetters) )
+
+cloneLetters.sort()
+
+console.log(cloneLetters)
+
+
+let originalNumbers = [ 1, 100, 30, 4, 20, 3 ]
+
+let cloneNumbers = JSON.parse( JSON.stringify(originalNumbers) )
+
+cloneNumbers.sort()
+console.log(cloneNumbers)
+
+// cuando trabajamos con numeros, tenemos que pasarle el algoritmo de busqueda.
+
+cloneNumbers.sort( (elem1, elem2) => {
+  console.log(elem1, elem2)
+  // como ir comparando las parejas de numeros uno a uno
+  // deberia retornar 2 posibles valores
+  // 1 (cualquier valor positivo) : ordenalos de forma ascendente
+  // -1 (cualquier valor negativo): ordenalos de forma descendente
+  // 0 : no les cambies el orden
+
+  if (elem1 < elem2) {
+    return -1
+  } else if (elem1 > elem2) {
+    return 1
+  } else {
+    return 0
+  }
+
+} )
+
+console.log(cloneNumbers)
+
+
+
