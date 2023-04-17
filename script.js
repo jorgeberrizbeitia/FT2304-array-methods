@@ -138,3 +138,91 @@ console.log(filteredArr)
 
 
 
+
+
+const people = [
+  { name: "Candice", age: 25 },
+  { name: "Tammy", age: 30 },
+  { name: "Allen", age: 21 },
+  { name: "Nettie", age: 20 },
+  { name: "Stuart", age: 17 },
+  { name: "Bill", age: 19 }
+];
+
+// note that "adults" is still just a function (just a function of arrow type)
+const adults = (arr) => {
+
+  let filterArr = arr.filter((eachPer) => {
+    return eachPer.age >= 21
+  })
+
+  let mappedArr = filterArr.map((eachPer) => {
+    return eachPer.name
+  })
+
+  return mappedArr
+}
+
+let canDrink = adults(people)
+console.log(canDrink) 
+
+
+// .reduce()
+
+let someNumbers = [ 1, 2, 3, 4, 5 ];
+
+// necesito la suma de estos numeros
+
+/*
+
+Syntaxis
+
+let valorFinalDelAcumulador = array.reduce( (acumulador, cadaElementoDelArray) => {
+
+  return // como vamos alterando el accumulador
+
+}, valorInicialDelAcumulador )
+
+*/
+let patata = someNumbers.reduce( (acumulador, eachNum) => {
+  // console.log("ejecutando el reduce")
+  console.log(acumulador, eachNum)
+  // retornamos como vamos acumulando los valores
+  return acumulador - eachNum
+  // el return es obligatorio en reduce.
+}, 100 )
+
+// el accumulador es la bolsita que va guardando lo que será el resultado final
+
+console.log(patata)
+
+
+let somePeople = [
+  { name: "Caro", candy: 20 },
+  { name: "Ruth", candy: 40 },
+  { name: "Clara", candy: 18 },
+  { name: "Jorge" }
+]
+
+let sum = somePeople.reduce( (acc, eachPerson) => {
+
+  // eachPerson.candy es undefined en el ultimo elemento
+  // 78 + undefined = NaN
+
+  if (typeof eachPerson.candy === "number") {
+    return acc + eachPerson.candy
+  } else {
+    return acc // continua la operación sin cambios en el acumulador
+  }
+
+}, 0 )
+
+console.log(sum)
+
+let newString = somePeople.reduce((acc, eachPerson) => {
+
+  return acc + `name: ${eachPerson.name}. candy: ${eachPerson.candy}. `
+
+}, "")
+
+console.log(newString)
