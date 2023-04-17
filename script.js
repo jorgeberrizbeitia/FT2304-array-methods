@@ -1,22 +1,22 @@
 console.log("probando")
 
 
-// .forEach()
+//* .forEach()
 
 
 // let randomNumbers = [ 4, 8, 15, 16, 23, 42 ];
 
 
-// let testFunction = () => {
-//   console.log("test de forEach")
-// }
+let testFunction = () => {
+  console.log("test de forEach")
+}
 
 
-// randomNumbers.forEach( testFunction )
+randomNumbers.forEach( testFunction )
 // forEach acepta como argumento una funcion.
 // NO, la invocacion de la funcion.
 
-
+// EJEMPLO DE COMO ESTÄ CONSTRUIDO UN forEach EN JS
 // function forEach(callback) {
 
 //   // tiene el array sobre el cual la ejecutamos
@@ -25,10 +25,6 @@ console.log("probando")
 //   }
 // }
 
-
-// let testFunction = () => {
-//   console.log("test de forEach")
-// }
 
 let randomNumbers = [ 4, 8, 15, 16, 23, 42 ];
 
@@ -42,7 +38,7 @@ randomNumbers.forEach( (eachElement, index) => {
 } )
 
 
-// .map()
+//* .map()
 
 let algo = randomNumbers.map( (eachElement) => {
   console.log("ejecutando algo por cada elemento del array", eachElement)
@@ -59,6 +55,8 @@ let algo = randomNumbers.map( (eachElement) => {
 console.log(algo)
 console.log(randomNumbers)
 
+
+// EJEMPLO DE COMO ESTÄ CONSTRUIDO UN map EN JS
 // function map(callback) {
 
 //   let newArr = []
@@ -74,16 +72,17 @@ console.log(randomNumbers)
 
 
 // actividad guiada
-// crea una funcion que reciba un array de numeros, y retorne un nuevo array con los numeros convertidos en strings.
+// crea una funcion que reciba un array de numeros...
+// ... y retorne un nuevo array con los numeros convertidos en strings.
 
 function numbersAsString( numbersArr ) {
 
   let mappedArray = numbersArr.map((eachNumber) => {
     let numAsString = eachNumber.toString()
-    return numAsString
+    return numAsString // return del map
   })  
 
-  return mappedArray
+  return mappedArray // return de la funcion
 
 }
 
@@ -91,14 +90,6 @@ function numbersAsString( numbersArr ) {
 // test de la funcion
 let stringsArr = numbersAsString( [2, 10, 54] )
 console.log(stringsArr)
-
-
-let mappedArray = [2, 10, 54].map((eachNumber) => {
-  let numAsString = eachNumber.toString()
-  return numAsString
-})  
-
-console.log(mappedArray)
 
 
 
