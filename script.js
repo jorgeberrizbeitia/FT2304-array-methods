@@ -4,7 +4,7 @@ console.log("probando")
 //* .forEach()
 
 
-// let randomNumbers = [ 4, 8, 15, 16, 23, 42 ];
+let randomNumbers = [ 4, 8, 15, 16, 23, 42 ];
 
 
 let testFunction = () => {
@@ -26,7 +26,7 @@ randomNumbers.forEach( testFunction )
 // }
 
 
-let randomNumbers = [ 4, 8, 15, 16, 23, 42 ];
+// let randomNumbers = [ 4, 8, 15, 16, 23, 42 ];
 
 randomNumbers.forEach( (eachElement, index) => {
   console.log("test de forEach", eachElement, index)
@@ -92,6 +92,49 @@ let stringsArr = numbersAsString( [2, 10, 54] )
 console.log(stringsArr)
 
 
+
+// .filter()
+
+const cars = [
+  { brand: "Mercedes-Benz", year: 2012, weight: 0.8 },
+  { brand: "Porsche", year: 2020, weight: 1.3 },
+  { brand: "Bugatti", year: 2003, weight: 0.5 },
+  { brand: "Volvo", year: 2010, weight: 1.9 },
+  { brand: "Smart", year: 2010, weight: 0.1 },
+];
+
+
+let mappedArr = cars.map((eachCar) => {
+  if (eachCar.year >= 2010) {
+    return eachCar
+  }
+})
+
+// el map siempre devuelve un array con la misma cantidad elementos originales
+console.log(mappedArr)
+
+// ... entonces usamos filter
+
+let filteredArr = cars.filter((eachCar) => {
+
+  // el filter siempre va a tener una condición
+  // en el filter debo retornar TRUE o FALSE
+  // TRUE : añade el elemento
+  // FALSE : no añadas el elemento
+
+  if (eachCar.weight < 1) {
+    return true // quiero agregarlo
+  } else {
+    return false // quiero omitirlo
+  }
+
+  // cuando tengan un condicional y deban retornar true o false
+  // asi que simplemente podemos devolver la condicion
+  // return eachCar.weight < 1
+
+})
+
+console.log(filteredArr)
 
 
 
